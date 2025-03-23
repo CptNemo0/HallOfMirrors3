@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net4.8</TargetFramework>
+    <LangVersion>13.0</LangVersion>
+	<ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+	<RootNamespace>LasersNMirrors.Core</RootNamespace>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="example_level.json" />
+    <None Remove="riddle.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="example_level2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="example_level.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="riddle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.2" />
+  </ItemGroup>
+
+</Project>
