@@ -66,8 +66,8 @@ namespace LasersNMirrors.Core
         public static Grid? CreateRandom()
         {
             var rand = new Random();
-            var width = (uint)rand.Next(4, 8);
-            var height = (uint)rand.Next(4, 8);
+            var width = (uint)rand.Next(6, 12);
+            var height = (uint)rand.Next(6, 12);
 
             Grid grid = new Grid((width), height);
 
@@ -125,7 +125,8 @@ namespace LasersNMirrors.Core
 
             grid.ClearMirrors();
             grid.ClearLasers();
-            
+            grid.SolveAndValidate();
+            grid.ClearLasers();
             return grid;
         }
     }
