@@ -11,7 +11,11 @@ namespace LasersNMirrors.Core
         private bool constant = false;
         private UInt32 number = 0;
 
-        public bool Constant => constant;
+        public bool Constant
+        {
+            get { return constant; }
+            set { constant = value; }
+        }
 
         public uint Number
         {
@@ -36,5 +40,7 @@ namespace LasersNMirrors.Core
             this.constant = constant;
             this.number = number;
         }
+
+        
     }
 }

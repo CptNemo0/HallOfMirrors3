@@ -25,7 +25,7 @@ namespace Presentation
         public MainWindow()
         {
             InitializeComponent();
-            game_grid = GridFactory.Create("riddle.json"); //new LNMGrid(10, 10);// Example grid with width and height of 10
+            game_grid = GridFactory.CreateRandom(); //new LNMGrid(10, 10);// Example grid with width and height of 10
             ellipse_laser_map = new Dictionary<Ellipse, Laser>();
             Redraw();
         }

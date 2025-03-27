@@ -344,5 +344,39 @@ namespace LasersNMirrors.Core
             Solve();
             return IsValid();
         }
+    
+        public void ClearMirrors()
+        {
+            for(uint y = 0; y < height; y++)
+            {
+                for(uint x = 0; x < width; x++)
+                {
+                    ClearMirror(x, y);
+                }
+            }
+        }
+
+        public void ClearLasers()
+        {
+            foreach (var laser in left_lasers)
+            {
+                laser.Active = false;
+            }
+
+            foreach (var laser in right_lasers)
+            {
+                laser.Active = false;
+            }
+
+            foreach (var laser in top_lasers)
+            {
+                laser.Active = false;
+            }
+
+            foreach (var laser in bottom_lasers)
+            {
+                laser.Active = false;
+            }
+        }
     }
 }

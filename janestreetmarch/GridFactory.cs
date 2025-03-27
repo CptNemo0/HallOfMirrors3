@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
@@ -60,6 +61,72 @@ namespace LasersNMirrors.Core
             UInt32 height = (UInt32)data.lef.Count;
 
             return new Grid(width, height, data.top, data.bot, data.lef, data.rig);
+        }
+
+        public static Grid? CreateRandom()
+        {
+            var rand = new Random();
+            var width = (uint)rand.Next(4, 8);
+            var height = (uint)rand.Next(4, 8);
+
+            Grid grid = new Grid((width), height);
+
+            for(uint y = 0; y < height; y++)
+            {
+                for(uint x = 0; x < width; x++)
+                {
+                    var cell = grid.GetCell(x, y);
+                    var mirror_type = rand.Next(0, 4);
+                    if(mirror_type < 2)
+                    {
+                        grid.AddMirror(x, y, (MirrorType)mirror_type);
+                    }
+                }
+            }
+
+            grid.SolveAndValidate();
+
+
+            foreach(var number in grid.top_numbers)
+            {
+                var r = rand.Next(0, 2);
+                if(r == 0)
+                {
+                    number.Constant = true;
+                }
+            }
+
+            foreach (var number in grid.bottom_numbers)
+            {
+                var r = rand.Next(0, 2);
+                if (r == 0)
+                {
+                    number.Constant = true;
+                }
+            }
+
+            foreach (var number in grid.left_numbers)
+            {
+                var r = rand.Next(0, 2);
+                if (r == 0)
+                {
+                    number.Constant = true;
+                }
+            }
+
+            foreach (var number in grid.right_numbers)
+            {
+                var r = rand.Next(0, 2);
+                if (r == 0)
+                {
+                    number.Constant = true;
+                }
+            }
+
+            grid.ClearMirrors();
+            grid.ClearLasers();
+            
+            return grid;
         }
     }
 }
