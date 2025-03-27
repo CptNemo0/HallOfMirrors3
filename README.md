@@ -4,5 +4,5 @@ This repository contains an app that helps solving Hall of Mirrors 3 puzzle by J
 ![Demo 1](img/demo1.png)
 ![Demo 2](img/demo2.png)
 
-[x] In future I'm going to add automatic level generation so one could play it endlessly.
-[ ] Add saves, and buttons for better control.
+- [x] In future I'm going to add automatic level generation so one could play it endlessly.  
+- [ ] Add saves, and buttons for better control.
